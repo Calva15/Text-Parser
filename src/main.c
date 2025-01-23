@@ -3,6 +3,19 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+//Function to remove punctuation from a word
+void remove_punctuation(char *word)
+{
+   int i = 0, j = 0;
+   while(word[i]){
+        if(!ispunct(word[i])) {
+            word[j++] = word[i];
+        }
+        i++;
+   }
+   word[j] = '\0'; // Null-terminate the modified string
+}
+
 int main()
 {
 FILE *file; //Declare a file pointer
@@ -23,7 +36,7 @@ file = fopen(filename, "r");
 //Checks if file opened successfully
 if (file == NULL)
 {
-    printf("Could not open file %s", filename);
+    printf("Could not open file %s\n", filename);
     return 1; //exits the program with an error code
 }
 //Prompt the user for the word to search
@@ -31,6 +44,13 @@ if (file == NULL)
     scanf("%99s", search_word);
 
  printf("File %s opened successfully.\n", filename);
+
+ // Converts the search word into lowercase
+    remove_punctuation(search_word);
+    for (int i = 0; search_word[i]; i++) 
+    {
+        search_word[i] = tolower(search_word[i]);
+    }
 
  // Read lines from the file until end of file
  while (fgets(line, sizeof(line), file) != NULL)
@@ -47,7 +67,16 @@ if (file == NULL)
     {
         // increment word count for each word found then goes to next word
         word_count++;
-        if (strcmp(word, search_word) == 0) // Compare with the search word
+        char lower_word[100];
+
+        remove_punctuation(word);
+        for (int i = 0; word[i];i++)
+        {
+            lower_word[i] = tolower(word[i]);
+        }
+            lower_word[strlen(word)] = '\0'; // Null-terminate the lower_word string
+
+        if (strcmp(lower_word, search_word) == 0) // Compare with the search word
         {
             search_count++;
         }
