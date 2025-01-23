@@ -6,7 +6,6 @@ The **Text Parser Project** is a beginner-friendly C program that parses text fi
 - Counts the number of lines and words in the file.
 - Searches for the frequency of a specific word.
 - Removes punctuation and processes text in a case-insensitive manner.
-- Requires file to be read in the same directory as program
 
 This project is a great starting point for learning file handling, string manipulation, and basic text parsing in C.
 
@@ -22,6 +21,7 @@ This project is a great starting point for learning file handling, string manipu
 
 ## Prerequisites
 - GCC compiler or any other C compiler.
+- Bash shell for running the build script.
 - Basic understanding of C programming.
 
 ---
@@ -34,19 +34,25 @@ This project is a great starting point for learning file handling, string manipu
 git clone <repository-link>
 ```
 
-### 2. Build the Program
-Use the GCC compiler to compile the program:
-```bash
-gcc main.c -o text_parser
-```
+### 2. Ensure File Placement
+- Place the text file you want to analyze in the **same directory** as the program.
 
-### 3. Run the Program
+### 3. Build the Program
+A Bash script is provided to compile and build the program. Simply run the script:
+```bash
+./build.sh
+```
+The script will:
+- Compile the `main.c` file using GCC.
+- Generate an executable file named `text_parser`.
+
+### 4. Run the Program
 Execute the compiled program:
 ```bash
 ./text_parser
 ```
 
-### 4. Program Interaction
+### 5. Program Interaction
 - When prompted, enter the name of the text file you want to parse (e.g., `sample.txt`).
 - Enter the word you want to search for.
 - View the results, including line count, word count, and search frequency.
@@ -102,4 +108,5 @@ File closed successfully.
 
 ## Acknowledgments
 This project was inspired by a need to create a simple, expandable text parser for beginners learning C programming.
+
 
