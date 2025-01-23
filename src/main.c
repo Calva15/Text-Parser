@@ -37,7 +37,7 @@ if (file == NULL)
  {
     line_count++; // increment line count for each line read
  
-    // Make a copy of the line to avoid modifying the original
+// Make a copy of the line to avoid modifying the original
     char line_copy[1000];
     strcpy(line_copy, line);
 
