@@ -6,6 +6,7 @@ The **Text Parser Project** is a beginner-friendly C program that parses text fi
 - Counts the number of lines and words in the file.
 - Searches for the frequency of a specific word.
 - Removes punctuation and processes text in a case-insensitive manner.
+- Requires file to be read in the same directory as program
 
 This project is a great starting point for learning file handling, string manipulation, and basic text parsing in C.
 
